@@ -118,15 +118,18 @@ console.log(number>0 ? "Your number is positif" : "Your number is negatif");
 
 //todo Question_5 ###############################
 
-// var temp=prompt("Input temperature like 20C or 68F" )
-// no_temp = 5
-// if (temp.endsWith("C")) {
+const temp=prompt("Input temperature like 20C or 68F" )
+let temp_num;
+if (temp.endsWith("C")) {
     
-//     no_temp= temp.substring(0, temp.length-1)
-//     // fah = (no_temp * 1.8) + 32
-//     turn_temp = Number(no_temp)
-//     console.log(turn_temp);
-// }
+    temp_num= temp.substring(0, temp.length-1)
+    temp_num = Number(temp_num)
+    var fah = (temp_num * 1.8) + 32
+    console.log(`${temp} = ${fah}F`);
+} else {
+    temp_num=temp.substring(0, temp.length-1)
+    temp_num = Number(temp_num)
+    var santi = (temp_num-32) / 1.8 
+    console.log(`${temp} = ${santi}C`);
+}
 
-// no_temp = temp.substring(0, temp.length-1)
-//     console.log(typeof turn_temp);
