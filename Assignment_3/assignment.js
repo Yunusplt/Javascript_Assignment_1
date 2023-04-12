@@ -34,3 +34,12 @@ console.log("Üs alma isleminin sonucu: ",calculator("üsAl",5,5));
 //! ### Question_3 ####
 
 
+const artikYil= function(yil) {
+    return (yil%4==0 && (yil%100!=0 || yil%400==0)) ? "Artik yil" : "Artik yil degildir."
+}
+console.log(artikYil(2020));
+console.log(artikYil(2023));
+console.log(artikYil(1500));
+console.log(artikYil(1600));
+
+
