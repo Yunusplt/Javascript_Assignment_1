@@ -124,5 +124,9 @@ li.checked > p {
   text-decoration: line-through;
   font-weight: normal;
 }
+/* 
 
-
+.fa-check{
+  background-color: red;
+  text-decoration: line-through;
+} */
