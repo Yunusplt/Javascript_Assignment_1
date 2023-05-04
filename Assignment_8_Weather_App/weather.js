@@ -1,12 +1,20 @@
 
 const cities = []
 const city = document.querySelector(".input1");
+const uyari = document.querySelector("p");
 
 document.querySelector(".submit").onclick = () => {
-  cities.push(city.value)
-  console.log(city.value);
+  if(city.value==""){
+    uyari.textContent = "Please enter a city"
+  }else if(cities.includes(city.value)){
+    uyari.textContent="You already have this city in your list"
+  }else{
+    uyari.textContent = ""
+    cities.unshift(city.value)
+
   veriGetir();
   city.value = ""; // input kutusu bos gözükmesi icin.
+}
 };
 
 city.onkeydown = (taste) => {
@@ -15,8 +23,6 @@ city.onkeydown = (taste) => {
   }
 };
 
-console.log(city.value);
-
 const veriGetir = async ()=>{
     const response = await fetch(
       //   `https://api.openweathermap.org/data/2.5/weather?q=london&appid=f56f703795a90532f7b92917734c7e64&units=metric`
@@ -24,20 +30,18 @@ const veriGetir = async ()=>{
     );
 
     const json = await  response.json()
-
-    console.log(json);
     ekranaBastir(json)
 }
 
 
 function ekranaBastir(data) {
-console.log(data.weather[0].icon);
-        document.querySelector("ul").innerHTML += `
+        document.querySelector("ul").innerHTML =
+          `
         <li class="list-unstyled ">
               <div class="card" style="width: 18rem" >
                 <img src="./img/${data.weather[0].icon}.png" class="card-img-top" alt="..." />
                 <div class="card-body">
-                  <h2>${data.name}<sup style="background-color: orange; padding:3px">${data.sys.country}</sup></h2>
+                  <h2>${data.name}<sup class="ms-2 fs-5 ps-1 pe-1" style="background-color: orange;">${data.sys.country}</sup></h2>
                   <div>
                     ${data.main.temp} <sup>&#176;C</sup>
                   </div>
@@ -49,6 +53,6 @@ console.log(data.weather[0].icon);
                 </div>
               </div>
             </li>
-        `;
+        ` + document.querySelector("ul").innerHTML;
 }
 
