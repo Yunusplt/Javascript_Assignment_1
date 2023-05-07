@@ -11,36 +11,80 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <script src="aes.js"></script>
+    <script src="Extentions.js"></script>
     <style>
       body {
         background-image: url(./img/background_weather.png);
         background-color: rgb(80, 76, 76);
         background-size: 100vh;
       }
-      .card-img-top{
-        background-color: #F7F7F7;
+      .card-img-top {
+        background-color: #f7f7f7;
+      }
+      input{
+        width: 250px;
+      }
+      .single-clear-btn{
+        background-color: rgb(189, 144, 60);
+        border-style: none;
+        position: absolute;
+        right: 0;
+        z-index: 2;
+      }
+      .city{
+        position: relative;
+        z-index: 1;
+      }
+      .clear-all{
+        background-color: rgb(189, 144, 60);
       }
     </style>
   </head>
   <body>
     <div class="container">
+      <div class="float-end languages" id="lang">
+        <img
+          id="de"
+          src="./img/icons8-germany-96.png"
+          alt="German"
+          width="70"
+        />
+        <img
+          id="en"
+          src="./img/icons8-great-britain-96.png"
+          alt="English"
+          width="70"
+        />
+      </div>
       <div class="text-center m-4">
-        <img src="./img/Untitled_Project-removebg-preview.png" alt="" width="
-        70%"/>
+        <img
+          src="./img/Untitled_Project-removebg-preview.png"
+          alt=""
+          width="
+        70%"
+        />
         <div class="m-4">
-          <input class="input1 me-1 ms-1" type="text" placeholder="Enter a city"/>
-          <button class="submit btn btn-success me-1">SUBMIT</button>
+          <input
+            class="input1 me-1 ms-1"
+            type="text"
+            placeholder="🔍 Search for a city"
+          />
+          <button class="location btn btn-success">&#8982;</button>
+          <button class="submit btn btn-success " >SEARCH</button>
+          <button class="clear-all btn btn-success">Clear all cities</button>
           <p class="text-white fs-3"></p>
         </div>
-        
       </div>
       <section>
         <div>
-          <ul class="d-flex flex-wrap gap-3"></ul>
+          <ul class="all-cities d-flex flex-wrap gap-3"></ul>
         </div>
       </section>
     </div>
 
     <script src="./weather.js"></script>
+
+
   </body>
 </html>
